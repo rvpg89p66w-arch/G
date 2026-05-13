@@ -338,6 +338,108 @@ body.light-mode .cv-files{background:rgba(0,0,0,.04);}
 .toast.ok{background:linear-gradient(135deg,#1a7a3a,#27ae60);}
 
 @keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══ CURRENT CLASS BANNER ══ */
+.current-class-banner{background:linear-gradient(135deg,rgba(240,192,96,.15),rgba(192,57,43,.1));border:1.5px solid var(--gold);border-radius:16px;padding:14px 18px;margin-bottom:20px;display:none;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 4px 24px rgba(240,192,96,.15);}
+.current-class-banner.show{display:flex;}
+.ccb-icon{font-size:28px;line-height:1;}
+.ccb-info{flex:1;min-width:140px;}
+.ccb-label{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:2px;margin-bottom:3px;}
+.ccb-class{font-family:'Tajawal',sans-serif;font-size:18px;font-weight:800;color:var(--text);}
+.ccb-timer{font-family:'Tajawal',sans-serif;font-size:22px;font-weight:800;color:var(--gold);text-align:center;min-width:80px;}
+.ccb-timer-lbl{font-size:10px;color:var(--muted);text-align:center;}
+
+/* Highlight current period in table */
+.cell.current-period{box-shadow:0 0 0 2px var(--gold),0 0 18px rgba(240,192,96,.4);animation:pulse-gold 2s infinite;}
+@keyframes pulse-gold{0%,100%{box-shadow:0 0 0 2px var(--gold),0 0 18px rgba(240,192,96,.4);}50%{box-shadow:0 0 0 2px var(--gold),0 0 28px rgba(240,192,96,.7);}}
+
+/* ══ GRADES PAGE ══ */
+.grades-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:20px;}
+.grades-class-tabs{display:flex;gap:6px;flex-wrap:wrap;flex:1;}
+.gc-tab{padding:7px 16px;border-radius:99px;border:1.5px solid var(--border);background:var(--surface);color:var(--muted);font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;}
+.gc-tab:hover{border-color:var(--gold);color:var(--gold);}
+.gc-tab.active{background:linear-gradient(135deg,var(--red),var(--red2));border-color:var(--red2);color:#fff;}
+.grades-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.grade-btn{padding:8px 16px;border-radius:99px;border:1.5px solid var(--border);background:var(--surface);color:var(--muted);font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .2s;}
+.grade-btn:hover{border-color:var(--gold);color:var(--gold);}
+.grade-btn.primary{background:linear-gradient(135deg,var(--red),var(--gold2));border:none;color:#fff;}
+
+.grades-empty{text-align:center;padding:48px 20px;color:var(--muted);}
+.grades-empty-icon{font-size:48px;margin-bottom:12px;}
+
+.grades-summary{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:16px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
+.gs-stat{display:flex;flex-direction:column;align-items:center;min-width:70px;}
+.gs-stat-num{font-family:'Tajawal',sans-serif;font-size:22px;font-weight:800;color:var(--gold);}
+.gs-stat-lbl{font-size:10px;color:var(--muted);margin-top:2px;}
+
+.grades-table-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--border);background:var(--surface);}
+.grades-table{width:100%;border-collapse:collapse;min-width:540px;}
+.grades-table th{background:var(--card);padding:9px 8px;font-size:11px;font-weight:700;color:var(--gold);border-left:1px solid var(--border);border-bottom:1px solid var(--border);white-space:nowrap;text-align:center;position:relative;}
+.grades-table th:first-child{text-align:right;padding-right:14px;min-width:120px;border-left:none;position:sticky;right:0;background:var(--card);z-index:2;}
+.grades-table td{padding:6px 7px;border-bottom:1px solid var(--border);border-left:1px solid var(--border);text-align:center;font-size:12px;}
+.grades-table td:first-child{font-weight:700;color:var(--text);text-align:right;padding-right:14px;border-left:none;background:var(--surface);position:sticky;right:0;z-index:1;}
+.grades-table tr:hover td{background:rgba(240,192,96,.04);}
+.grades-table tr.avg-row td{background:rgba(192,57,43,.08);font-weight:800;color:var(--gold);}
+.grade-input{background:transparent;border:1px solid transparent;border-radius:6px;color:var(--text);font-family:'Cairo',sans-serif;font-size:12px;padding:4px 5px;width:55px;text-align:center;outline:none;transition:all .15s;}
+.grade-input:hover{border-color:var(--border);}
+.grade-input:focus{border-color:var(--gold);background:rgba(240,192,96,.05);}
+.grade-input.low{color:#e74c3c;}
+.grade-input.mid{color:#f0c060;}
+.grade-input.high{color:#27ae60;}
+.grade-col-head{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.gch-name{font-size:11px;font-weight:700;}
+.gch-max{font-size:9px;color:var(--muted);font-weight:600;}
+.gch-actions{position:absolute;top:3px;left:3px;display:none;}
+.grades-table th:hover .gch-actions{display:flex;gap:2px;}
+.gch-act-btn{width:18px;height:18px;border-radius:4px;border:none;background:rgba(0,0,0,.3);color:#fff;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.gch-act-btn:hover{background:var(--red2);}
+
+.student-del-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:11px;margin-right:4px;opacity:.5;}
+.student-del-btn:hover{color:var(--red2);opacity:1;}
+
+/* ══ STATS PAGE ══ */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px;}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;transition:transform .2s,box-shadow .2s;}
+.stat-card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(192,57,43,.12);}
+.stat-card-top{display:flex;align-items:center;gap:8px;}
+.stat-card-icon{font-size:20px;}
+.stat-card-label{font-size:11px;color:var(--muted);font-weight:600;}
+.stat-card-value{font-family:'Tajawal',sans-serif;font-size:26px;font-weight:800;color:var(--gold);line-height:1;}
+.stat-card-sub{font-size:11px;color:var(--muted);}
+
+.chart-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:18px;}
+.chart-card h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:7px;}
+.chart-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.chart-row-label{font-size:12px;font-weight:600;color:var(--text);min-width:80px;}
+.chart-row-bar-wrap{flex:1;height:18px;background:var(--card);border-radius:99px;overflow:hidden;border:1px solid var(--border);}
+.chart-row-bar{height:100%;border-radius:99px;display:flex;align-items:center;justify-content:flex-end;padding:0 8px;font-size:10px;font-weight:700;color:#fff;transition:width .8s cubic-bezier(.4,0,.2,1);min-width:30px;}
+
+/* Heatmap-style week grid */
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:10px;}
+.week-cell{aspect-ratio:1;border-radius:6px;background:var(--card);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:var(--muted);}
+.week-cell .wc-day{font-size:9px;}
+.week-cell .wc-count{font-family:'Tajawal',sans-serif;font-size:14px;font-weight:800;color:var(--gold);}
+
+/* ══ REMINDERS ══ */
+.reminder-toast{position:fixed;top:60px;left:50%;transform:translateX(-50%) translateY(-120px);background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1010;font-weight:700;padding:12px 22px;border-radius:14px;font-size:13px;transition:transform .4s cubic-bezier(.4,0,.2,1),opacity .4s;opacity:0;pointer-events:none;z-index:998;box-shadow:0 8px 32px rgba(240,192,96,.4);max-width:90vw;text-align:center;display:flex;align-items:center;gap:10px;}
+.reminder-toast.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto;}
+.reminder-toast .rt-icon{font-size:22px;}
+.reminder-toast .rt-close{background:none;border:none;color:#1a1010;font-size:18px;cursor:pointer;font-weight:800;padding:0 4px;}
+
+.reminders-settings{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px 16px;margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.reminders-settings .rs-label{font-size:12px;color:var(--text);font-weight:600;display:flex;align-items:center;gap:6px;}
+.rs-toggle{position:relative;width:42px;height:22px;background:var(--border);border-radius:99px;cursor:pointer;transition:background .2s;}
+.rs-toggle.on{background:var(--green);}
+.rs-toggle::after{content:'';position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .2s;}
+.rs-toggle.on::after{transform:translateX(-20px);}
+.rs-mins{background:var(--card);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Cairo',sans-serif;font-size:12px;padding:5px 8px;width:60px;text-align:center;outline:none;}
+
+/* ══ STUDENT IMPORT MODAL ══ */
+.import-textarea{width:100%;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Cairo',sans-serif;font-size:13px;padding:10px;outline:none;resize:vertical;height:180px;line-height:1.7;}
+.import-textarea:focus{border-color:var(--gold);}
+.import-hint{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.5;}
+
+/* ══ COL HEAD MODAL ══ */
 @media(max-width:580px){
   .lesson-top{grid-template-columns:24px 1fr;grid-template-rows:auto auto;}
   .field-wrap{flex-direction:row;grid-column:1/-1;margin-top:3px;}
@@ -354,6 +456,8 @@ body.light-mode .cv-files{background:rgba(0,0,0,.04);}
   <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()">🌙 داكن</button>
   <button class="nav-btn active" onclick="showPage('timetable',this)">🗓️ الجدول</button>
   <button class="nav-btn" onclick="showPage('tracker',this)">📚 الخطة</button>
+  <button class="nav-btn" onclick="showPage('grades',this)">📊 الدرجات</button>
+  <button class="nav-btn" onclick="showPage('stats',this)">📈 إحصائيات</button>
   <button class="nav-btn" onclick="showPage('archive',this)">🗂️ الأرشيف</button>
   <button class="nav-btn" onclick="showPage('cv',this)">🏆 السيرة</button>
 </div>
@@ -368,6 +472,29 @@ body.light-mode .cv-files{background:rgba(0,0,0,.04);}
     <div class="tag">🗓️ الجدول الأسبوعي</div>
     <h1>جدول حصص الرياضيات</h1>
     <p>الفصل الدراسي الثاني 2025 / 2026</p>
+  </div>
+
+  <!-- Current class banner -->
+  <div class="current-class-banner" id="ccb">
+    <span class="ccb-icon">🔔</span>
+    <div class="ccb-info">
+      <div class="ccb-label" id="ccb-label">الحصة الحالية</div>
+      <div class="ccb-class" id="ccb-class">—</div>
+    </div>
+    <div>
+      <div class="ccb-timer" id="ccb-timer">--:--</div>
+      <div class="ccb-timer-lbl" id="ccb-timer-lbl">المتبقي</div>
+    </div>
+  </div>
+
+  <!-- Reminders settings -->
+  <div class="reminders-settings">
+    <span class="rs-label">🔔 التذكيرات قبل الحصة:</span>
+    <div class="rs-toggle" id="rs-toggle" onclick="toggleReminders()"></div>
+    <span style="font-size:12px;color:var(--muted)">بـ</span>
+    <input type="number" class="rs-mins" id="rs-mins" min="1" max="60" value="10" onchange="updReminderMins()"/>
+    <span style="font-size:12px;color:var(--muted)">دقيقة</span>
+    <button class="grade-btn" style="margin-right:auto" onclick="testReminder()">🔔 اختبار</button>
   </div>
   <div class="tt-toolbar">
     <button class="tt-edit-btn" id="tt-edit" onclick="toggleEditMode()">✏️ تعديل الجدول</button>
@@ -421,7 +548,58 @@ body.light-mode .cv-files{background:rgba(0,0,0,.04);}
   <div id="sections"></div>
 </div></div>
 
-<!-- ══ ARCHIVE ══ -->
+<!-- ══ GRADES ══ -->
+<div class="page" id="page-grades"><div class="wrap">
+  <div class="page-header"><div class="tag">📊 دفتر الدرجات</div><h1>درجات الطلاب</h1><p>تتبّع درجات الواجبات والاختبارات لكل شعبة</p></div>
+
+  <div class="grades-toolbar">
+    <div class="grades-class-tabs" id="grades-class-tabs"></div>
+    <div class="grades-actions">
+      <button class="grade-btn" onclick="openImportStudents()">📥 لصق طلاب</button>
+      <button class="grade-btn primary" onclick="openAddGradeCol()">➕ نوع تقييم</button>
+    </div>
+  </div>
+
+  <div id="grades-empty" class="grades-empty">
+    <div class="grades-empty-icon">📋</div>
+    <p>لا توجد شعب بعد</p>
+    <p style="font-size:11px;margin-top:6px">أضف شعب من صفحة الجدول</p>
+  </div>
+
+  <div id="grades-content" style="display:none">
+    <div class="grades-summary" id="grades-summary"></div>
+    <div class="grades-table-wrap">
+      <table class="grades-table" id="grades-table"></table>
+    </div>
+  </div>
+</div></div>
+
+<!-- ══ STATS ══ -->
+<div class="page" id="page-stats"><div class="wrap">
+  <div class="page-header"><div class="tag">📈 الإحصائيات</div><h1>لوحة المعلومات</h1><p>نظرة شاملة على تقدّم الفصل الدراسي</p></div>
+
+  <div class="stats-grid" id="stats-cards"></div>
+
+  <div class="chart-card">
+    <h3>📚 التقدم حسب المحاور</h3>
+    <div id="stats-sections"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>🏫 توزيع الدروس على الشعب</h3>
+    <div id="stats-classes"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📅 الحصص الأسبوعية</h3>
+    <div class="week-grid" id="stats-week"></div>
+  </div>
+
+  <div class="chart-card" id="stats-grades-card" style="display:none">
+    <h3>🎯 متوسط الدرجات حسب الشعبة</h3>
+    <div id="stats-grades"></div>
+  </div>
+</div></div>
 <div class="page" id="page-archive"><div class="wrap">
   <div class="page-header"><div class="tag">🗂️ الأرشيف</div><h1>أرشيف الفصل الدراسي</h1><p>ملفات محفوظة على Supabase ☁️</p></div>
   <div class="storage-bar-wrap">
@@ -502,6 +680,48 @@ body.light-mode .cv-files{background:rgba(0,0,0,.04);}
   <div class="cv-timeline" id="cv-timeline"></div>
 </div></div>
 
+<!-- ══ Import Students Modal ══ -->
+<div class="modal-bg hidden" id="import-modal-bg">
+  <div class="modal">
+    <h3>📥 لصق قائمة الطلاب</h3>
+    <label id="import-class-lbl">الشعبة:</label>
+    <textarea class="import-textarea" id="import-textarea" placeholder="الصق الأسماء هنا، كل اسم في سطر:
+
+أحمد محمد
+خالد علي
+سعد عبدالله
+..."></textarea>
+    <div class="import-hint">💡 سيتم إضافة كل سطر كطالب جديد. الأسطر الفارغة تُتجاهل.</div>
+    <div class="modal-btns">
+      <button class="modal-cancel" onclick="closeImportStudents()">إلغاء</button>
+      <button class="modal-save" onclick="importStudents()">إضافة ✅</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Add Grade Column Modal ══ -->
+<div class="modal-bg hidden" id="gradecol-modal-bg">
+  <div class="modal">
+    <h3>📝 إضافة نوع تقييم</h3>
+    <label>اسم التقييم *</label>
+    <input id="gc-name" type="text" placeholder="مثال: واجب 1، اختبار قصير 1..."/>
+    <label>الفئة</label>
+    <select id="gc-cat">
+      <option value="homework">📝 واجبات</option>
+      <option value="quiz">📋 اختبارات قصيرة</option>
+      <option value="exam">📚 اختبارات نهائية</option>
+      <option value="participation">⭐ مشاركة ومشروع</option>
+      <option value="custom">🎯 مخصص</option>
+    </select>
+    <label>الدرجة العظمى</label>
+    <input id="gc-max" type="number" value="10" min="1" max="100"/>
+    <div class="modal-btns">
+      <button class="modal-cancel" onclick="closeGradeCol()">إلغاء</button>
+      <button class="modal-save" onclick="addGradeCol()">إضافة ✅</button>
+    </div>
+  </div>
+</div>
+
 <!-- ══ Archive File Modal ══ -->
 <div class="modal-bg hidden" id="modal-bg">
   <div class="modal">
@@ -566,6 +786,11 @@ body.light-mode .cv-files{background:rgba(0,0,0,.04);}
   <button class="img-close">✕ إغلاق</button>
   <img class="img-viewer" id="img-viewer" src=""/>
 </div>
+<div class="reminder-toast" id="reminder-toast">
+  <span class="rt-icon">🔔</span>
+  <span id="reminder-text">حصة قريباً</span>
+  <button class="rt-close" onclick="dismissReminder()">✕</button>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -617,6 +842,12 @@ let timetableConfig=null;
 let classConfig=null;
 let ttEditing=false;
 let ttBackup=null;
+let students={}; // {classKey: [{id,name}]}
+let grades={}; // {classKey: {studentId: {colId: score}}}
+let gradeTypes=[]; // [{id, name, category, max, classKey}]
+let remindersConfig={enabled:false,minutes:10};
+let activeGradesClass=null;
+let reminderState={};
 
 // Defaults
 const DEFAULT_DAYS=[
@@ -670,6 +901,10 @@ async function initLoad(){
     arcCategories=data.arc_categories||DEFAULT_CATS;
     timetableConfig=data.timetable_config&&data.timetable_config.days?data.timetable_config:{days:DEFAULT_DAYS,periods:DEFAULT_PERIODS,schedule:DEFAULT_SCHEDULE};
     classConfig=data.class_config&&Object.keys(data.class_config).length?data.class_config:JSON.parse(JSON.stringify(DEFAULT_CLASS_CONFIG));
+    students=data.students||{};
+    grades=data.grades||{};
+    gradeTypes=data.grade_types||[];
+    remindersConfig=data.reminders_config&&typeof data.reminders_config.enabled!=='undefined'?data.reminders_config:{enabled:false,minutes:10};
   } else {
     arcCategories=DEFAULT_CATS;
     timetableConfig={days:DEFAULT_DAYS,periods:DEFAULT_PERIODS,schedule:DEFAULT_SCHEDULE};
@@ -681,13 +916,15 @@ async function initLoad(){
   applyFilter();
   update();
   loadCvProfile();
+  loadRemindersUI();
+  startClassWatcher();
 }
 
 let saveTimer;
 function scheduleSave(){
   clearTimeout(saveTimer);
   saveTimer=setTimeout(()=>{
-    dbSave({plan_state:state,arc_meta:arcMeta,cv_items:cvItems,cv_profile:cvProfile,lesson_files:lessonFiles,arc_categories:arcCategories,timetable_config:timetableConfig,class_config:classConfig});
+    dbSave({plan_state:state,arc_meta:arcMeta,cv_items:cvItems,cv_profile:cvProfile,lesson_files:lessonFiles,arc_categories:arcCategories,timetable_config:timetableConfig,class_config:classConfig,students,grades,grade_types:gradeTypes,reminders_config:remindersConfig});
   },800);
 }
 
@@ -699,6 +936,8 @@ function showPage(id,btn){
   btn.classList.add('active');
   if(id==='archive')loadArchive();
   if(id==='cv'){renderCv();loadCvProfile();}
+  if(id==='grades')renderGrades();
+  if(id==='stats')renderStats();
 }
 const dayMap={0:'row-sun',1:'row-mon',2:'row-tue',3:'row-wed',4:'row-thu'};
 
@@ -1223,6 +1462,379 @@ function closeImg(){document.getElementById('img-modal').classList.add('hidden')
 async function openPdf(path,name){const url=await sbGetUrl(path);document.getElementById('pdf-title').textContent=name;document.getElementById('pdf-frame').src=url;document.getElementById('pdf-modal').classList.remove('hidden');}
 function closePdf(){document.getElementById('pdf-modal').classList.add('hidden');document.getElementById('pdf-frame').src='';}
 async function downloadPdf(path,name){const url=await sbGetUrl(path);const a=document.createElement('a');a.href=url;a.download=name;a.target='_blank';a.click();}
+
+// ══ CURRENT CLASS WATCHER & REMINDERS ═════════════════
+function parseTime12(str){
+  // "7:25 AM" → minutes since midnight
+  if(!str)return null;
+  const m=str.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM|am|pm)?$/);
+  if(!m)return null;
+  let h=parseInt(m[1]),mn=parseInt(m[2]);
+  const ap=(m[3]||'').toUpperCase();
+  if(ap==='PM'&&h<12)h+=12;
+  if(ap==='AM'&&h===12)h=0;
+  // If no AM/PM, heuristic: if h<7, assume PM
+  if(!ap&&h<7)h+=12;
+  return h*60+mn;
+}
+function nowMins(){const d=new Date();return d.getHours()*60+d.getMinutes();}
+function currentDayKey(){
+  const d=new Date().getDay();
+  return ({0:'sun',1:'mon',2:'tue',3:'wed',4:'thu',5:'fri',6:'sat'})[d];
+}
+
+function findCurrentAndNextPeriod(){
+  const dayKey=currentDayKey();
+  if(!timetableConfig)return {current:null,next:null};
+  const daySched=timetableConfig.schedule[dayKey]||{};
+  const now=nowMins();
+  let current=null,next=null;
+  timetableConfig.periods.forEach((p,idx)=>{
+    const s=parseTime12(p.start),e=parseTime12(p.end);
+    const classKey=daySched[idx];
+    if(s===null||e===null)return;
+    if(now>=s&&now<e){
+      current={idx,period:p,start:s,end:e,classKey,dayKey};
+    } else if(now<s&&!next){
+      if(classKey)next={idx,period:p,start:s,end:e,classKey,dayKey};
+    }
+  });
+  return {current,next};
+}
+
+function updateCurrentClassBanner(){
+  const banner=document.getElementById('ccb');
+  if(!banner)return;
+  const {current}=findCurrentAndNextPeriod();
+  // Highlight in table
+  document.querySelectorAll('.cell.current-period').forEach(el=>el.classList.remove('current-period'));
+  if(current&&current.classKey){
+    const cls=classConfig[current.classKey];
+    banner.classList.add('show');
+    document.getElementById('ccb-class').textContent='الشعبة '+(cls?cls.name:current.classKey);
+    document.getElementById('ccb-label').textContent=`الحصة ${current.period.num} • الآن`;
+    const remaining=current.end-nowMins();
+    document.getElementById('ccb-timer').textContent=remaining+' د';
+    document.getElementById('ccb-timer-lbl').textContent='المتبقي';
+    // Highlight cell
+    const row=document.getElementById('row-'+current.dayKey);
+    if(row){
+      const cells=row.querySelectorAll('td .cell');
+      cells.forEach(c=>{
+        // The index of this cell in row's tds (excluding first td which is day name)
+        const tdParent=c.closest('td');
+        const tds=Array.from(row.querySelectorAll('td'));
+        const tdIdx=tds.indexOf(tdParent);
+        if(tdIdx-1===current.idx)c.classList.add('current-period');
+      });
+    }
+  } else {
+    // Show next-up info if available
+    const {next}=findCurrentAndNextPeriod();
+    if(next&&next.classKey){
+      const cls=classConfig[next.classKey];
+      const mins=next.start-nowMins();
+      if(mins>0&&mins<=60){
+        banner.classList.add('show');
+        document.getElementById('ccb-class').textContent='الشعبة '+(cls?cls.name:next.classKey);
+        document.getElementById('ccb-label').textContent=`الحصة ${next.period.num} • قادمة`;
+        document.getElementById('ccb-timer').textContent=mins+' د';
+        document.getElementById('ccb-timer-lbl').textContent='تبدأ بعد';
+      } else {
+        banner.classList.remove('show');
+      }
+    } else {
+      banner.classList.remove('show');
+    }
+  }
+  // Check reminders
+  checkReminders();
+}
+
+function checkReminders(){
+  if(!remindersConfig.enabled)return;
+  const dayKey=currentDayKey();
+  const daySched=(timetableConfig&&timetableConfig.schedule[dayKey])||{};
+  const now=nowMins();
+  timetableConfig.periods.forEach((p,idx)=>{
+    const s=parseTime12(p.start);
+    const classKey=daySched[idx];
+    if(s===null||!classKey)return;
+    const diff=s-now;
+    const target=remindersConfig.minutes||10;
+    if(diff===target||diff===target-1){
+      const key=`${dayKey}_${idx}_${new Date().toDateString()}`;
+      if(reminderState[key])return;
+      reminderState[key]=true;
+      fireReminder(p,classKey,diff);
+    }
+  });
+}
+
+function fireReminder(period,classKey,diff){
+  const cls=classConfig[classKey];
+  const name=cls?cls.name:classKey;
+  const msg=`حصة ${name} تبدأ بعد ${diff} دقيقة`;
+  // Visual toast
+  document.getElementById('reminder-text').textContent=msg;
+  document.getElementById('reminder-toast').classList.add('show');
+  // Browser notification
+  if('Notification' in window&&Notification.permission==='granted'){
+    try{new Notification('تذكير حصة 🔔',{body:msg,icon:'data:image/svg+xml;base64,'+btoa('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="80" font-size="80">🔔</text></svg>')});}catch(e){}
+  }
+  // Vibrate if mobile
+  if(navigator.vibrate)navigator.vibrate([200,100,200]);
+}
+function dismissReminder(){document.getElementById('reminder-toast').classList.remove('show');}
+
+function loadRemindersUI(){
+  const t=document.getElementById('rs-toggle');
+  t.classList.toggle('on',remindersConfig.enabled);
+  document.getElementById('rs-mins').value=remindersConfig.minutes||10;
+}
+function toggleReminders(){
+  remindersConfig.enabled=!remindersConfig.enabled;
+  document.getElementById('rs-toggle').classList.toggle('on',remindersConfig.enabled);
+  if(remindersConfig.enabled&&'Notification' in window&&Notification.permission==='default'){
+    Notification.requestPermission().then(p=>{
+      if(p==='granted')toast('✅ تم تفعيل التذكيرات','ok');
+      else toast('🔔 التذكيرات داخل الصفحة فقط');
+    });
+  } else {
+    toast(remindersConfig.enabled?'✅ تم التفعيل':'❌ تم الإيقاف',remindersConfig.enabled?'ok':false);
+  }
+  scheduleSave();
+}
+function updReminderMins(){
+  const v=parseInt(document.getElementById('rs-mins').value);
+  if(v>0&&v<=60){remindersConfig.minutes=v;scheduleSave();}
+}
+function testReminder(){
+  fireReminder({num:1},Object.keys(classConfig)[0]||'test',remindersConfig.minutes||10);
+}
+
+let watcherInterval;
+function startClassWatcher(){
+  if(watcherInterval)clearInterval(watcherInterval);
+  updateCurrentClassBanner();
+  watcherInterval=setInterval(updateCurrentClassBanner,30000); // every 30s
+}
+
+// ══ GRADES ═══════════════════════════════════════════
+function renderGrades(){
+  const classKeys=Object.keys(classConfig);
+  const tabs=document.getElementById('grades-class-tabs');
+  tabs.innerHTML=classKeys.map(k=>`<button class="gc-tab ${activeGradesClass===k?'active':''}" onclick="setGradesClass('${k}')">${classConfig[k].name}</button>`).join('');
+  if(!classKeys.length){
+    document.getElementById('grades-empty').style.display='block';
+    document.getElementById('grades-content').style.display='none';
+    return;
+  }
+  if(!activeGradesClass||!classConfig[activeGradesClass])activeGradesClass=classKeys[0];
+  renderGradesTable();
+}
+function setGradesClass(k){activeGradesClass=k;renderGrades();}
+
+function renderGradesTable(){
+  const k=activeGradesClass;
+  if(!k)return;
+  const cls=classConfig[k];
+  const sList=students[k]||[];
+  const cols=gradeTypes.filter(c=>c.classKey===k);
+  const wrap=document.getElementById('grades-content');
+  const empty=document.getElementById('grades-empty');
+
+  if(!sList.length&&!cols.length){
+    empty.style.display='block';empty.innerHTML='<div class="grades-empty-icon">📋</div><p>لا يوجد طلاب في هذه الشعبة</p><p style="font-size:11px;margin-top:6px">اضغط "📥 لصق طلاب" لإضافة طلاب الشعبة</p>';
+    wrap.style.display='none';return;
+  }
+  empty.style.display='none';wrap.style.display='block';
+
+  // Summary
+  const totalStudents=sList.length,totalCols=cols.length;
+  let sumAvg=0,countAvg=0;
+  sList.forEach(st=>{
+    const sg=(grades[k]||{})[st.id]||{};
+    let pts=0,maxPts=0;
+    cols.forEach(c=>{if(sg[c.id]!=null&&!isNaN(sg[c.id])){pts+=Number(sg[c.id]);maxPts+=Number(c.max);}});
+    if(maxPts>0){sumAvg+=(pts/maxPts)*100;countAvg++;}
+  });
+  const classAvg=countAvg?Math.round(sumAvg/countAvg):0;
+  document.getElementById('grades-summary').innerHTML=`
+    <div class="gs-stat"><div class="gs-stat-num">${totalStudents}</div><div class="gs-stat-lbl">طالب</div></div>
+    <div class="gs-stat"><div class="gs-stat-num">${totalCols}</div><div class="gs-stat-lbl">تقييم</div></div>
+    <div class="gs-stat"><div class="gs-stat-num">${classAvg}%</div><div class="gs-stat-lbl">متوسط الصف</div></div>
+  `;
+
+  // Table
+  const t=document.getElementById('grades-table');
+  let head='<thead><tr><th>الطالب</th>';
+  cols.forEach(c=>{
+    head+=`<th><div class="grade-col-head"><div class="gch-actions"><button class="gch-act-btn" onclick="delGradeCol('${c.id}')" title="حذف">✕</button></div><div class="gch-name">${c.name}</div><div class="gch-max">/${c.max}</div></div></th>`;
+  });
+  head+='<th>المعدل</th></tr></thead>';
+  let body='<tbody>';
+  sList.forEach(st=>{
+    const sg=(grades[k]||{})[st.id]||{};
+    body+=`<tr><td><button class="student-del-btn" onclick="delStudent('${st.id}')">✕</button>${st.name}</td>`;
+    let pts=0,maxPts=0,filled=0;
+    cols.forEach(c=>{
+      const v=sg[c.id];
+      const num=v!=null&&!isNaN(v)?Number(v):null;
+      let cls='';
+      if(num!=null){
+        const pct=(num/c.max)*100;
+        cls=pct<50?'low':pct<75?'mid':'high';
+        pts+=num;maxPts+=Number(c.max);filled++;
+      }
+      body+=`<td><input class="grade-input ${cls}" type="number" min="0" max="${c.max}" step="0.5" value="${num!=null?num:''}" onchange="updGrade('${st.id}','${c.id}',this.value)" placeholder="—"/></td>`;
+    });
+    const avg=maxPts>0?Math.round((pts/maxPts)*100):null;
+    const avgCls=avg==null?'':avg<50?'low':avg<75?'mid':'high';
+    body+=`<td style="font-weight:800" class="${avgCls?'grade-input '+avgCls:''}">${avg!=null?avg+'%':'—'}</td></tr>`;
+  });
+  body+='</tbody>';
+  t.innerHTML=head+body;
+}
+
+function updGrade(studentId,colId,val){
+  const k=activeGradesClass;
+  if(!grades[k])grades[k]={};
+  if(!grades[k][studentId])grades[k][studentId]={};
+  if(val==''||val==null){delete grades[k][studentId][colId];}
+  else{grades[k][studentId][colId]=parseFloat(val);}
+  renderGradesTable();scheduleSave();
+}
+function delStudent(id){
+  const k=activeGradesClass;
+  if(!confirm('حذف الطالب وكل درجاته؟'))return;
+  students[k]=(students[k]||[]).filter(s=>s.id!==id);
+  if(grades[k])delete grades[k][id];
+  renderGradesTable();toast('🗑️ تم الحذف');scheduleSave();
+}
+function delGradeCol(id){
+  if(!confirm('حذف هذا التقييم وكل درجاته؟'))return;
+  gradeTypes=gradeTypes.filter(c=>c.id!==id);
+  // remove all scores under this colId
+  Object.keys(grades).forEach(ck=>{Object.keys(grades[ck]).forEach(sid=>{if(grades[ck][sid][id]!=null)delete grades[ck][sid][id];});});
+  renderGradesTable();toast('🗑️ تم الحذف');scheduleSave();
+}
+
+// Import students
+function openImportStudents(){
+  if(!activeGradesClass){toast('❌ اختر شعبة أولاً',true);return;}
+  document.getElementById('import-class-lbl').textContent='الشعبة: '+classConfig[activeGradesClass].name;
+  document.getElementById('import-textarea').value='';
+  document.getElementById('import-modal-bg').classList.remove('hidden');
+}
+function closeImportStudents(){document.getElementById('import-modal-bg').classList.add('hidden');}
+function importStudents(){
+  const txt=document.getElementById('import-textarea').value;
+  const lines=txt.split('\n').map(l=>l.trim()).filter(l=>l);
+  if(!lines.length){toast('❌ لا يوجد أسماء',true);return;}
+  const k=activeGradesClass;
+  if(!students[k])students[k]=[];
+  lines.forEach(name=>{
+    students[k].push({id:'s_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),name});
+  });
+  closeImportStudents();renderGradesTable();toast(`✅ تم إضافة ${lines.length} طالب`,'ok');scheduleSave();
+}
+
+// Add grade column
+function openAddGradeCol(){
+  if(!activeGradesClass){toast('❌ اختر شعبة أولاً',true);return;}
+  document.getElementById('gc-name').value='';
+  document.getElementById('gc-max').value=10;
+  document.getElementById('gc-cat').value='homework';
+  document.getElementById('gradecol-modal-bg').classList.remove('hidden');
+}
+function closeGradeCol(){document.getElementById('gradecol-modal-bg').classList.add('hidden');}
+function addGradeCol(){
+  const name=document.getElementById('gc-name').value.trim();
+  if(!name){document.getElementById('gc-name').focus();return;}
+  const max=parseFloat(document.getElementById('gc-max').value)||10;
+  const cat=document.getElementById('gc-cat').value;
+  gradeTypes.push({id:'g_'+Date.now(),name,category:cat,max,classKey:activeGradesClass});
+  closeGradeCol();renderGradesTable();toast('✅ تم الإضافة','ok');scheduleSave();
+}
+
+// ══ STATS ════════════════════════════════════════════
+function renderStats(){
+  const all=allLessons(),total=all.length,done=all.filter(l=>get(l.id).done).length;
+  const pct=total?Math.round(done/total*100):0;
+
+  // Sessions count
+  let sessions=0;
+  all.forEach(l=>{const s=get(l.id);if(s.sessions)sessions+=parseInt(s.sessions)||0;});
+
+  // Classes count
+  const classCounts={};
+  Object.keys(classConfig).forEach(k=>classCounts[k]=0);
+  all.forEach(l=>{const s=get(l.id);if(s.classes){Object.keys(s.classes).forEach(c=>{if(s.classes[c]&&classCounts[c]!=null)classCounts[c]++;});}});
+
+  // Top stats cards
+  const cards=[
+    {icon:'✅',label:'دروس مكتملة',val:done,sub:`من ${total}`},
+    {icon:'⏳',label:'دروس متبقية',val:total-done,sub:`${100-pct}%`},
+    {icon:'📈',label:'نسبة الإنجاز',val:pct+'%',sub:''},
+    {icon:'🕐',label:'إجمالي الحصص',val:sessions,sub:'حصة'},
+    {icon:'🏫',label:'عدد الشعب',val:Object.keys(classConfig).length,sub:''},
+  ];
+  if(Object.keys(students).length){
+    let totalSt=0;Object.keys(students).forEach(k=>totalSt+=(students[k]||[]).length);
+    cards.push({icon:'👥',label:'إجمالي الطلاب',val:totalSt,sub:''});
+  }
+  document.getElementById('stats-cards').innerHTML=cards.map(c=>`<div class="stat-card"><div class="stat-card-top"><span class="stat-card-icon">${c.icon}</span><span class="stat-card-label">${c.label}</span></div><div class="stat-card-value">${c.val}</div>${c.sub?`<div class="stat-card-sub">${c.sub}</div>`:''}</div>`).join('');
+
+  // Sections progress
+  const secsEl=document.getElementById('stats-sections');
+  secsEl.innerHTML=plan.map(sec=>{
+    const ls=sec.units.flatMap(u=>u.lessons);
+    const sd=ls.filter(l=>get(l.id).done).length;
+    const sp=ls.length?Math.round(sd/ls.length*100):0;
+    const colorMap={measure:'linear-gradient(90deg,#c0392b,#e74c3c)',data:'linear-gradient(90deg,#d4a030,#f0c060)',num:'linear-gradient(90deg,#a09080,#c8b8a8)',geo:'linear-gradient(90deg,#8b0000,#c0392b)'};
+    return `<div class="chart-row"><span class="chart-row-label">${sec.icon} ${sec.title}</span><div class="chart-row-bar-wrap"><div class="chart-row-bar" style="width:${sp}%;background:${colorMap[sec.id]||'var(--gold)'}">${sp}% (${sd}/${ls.length})</div></div></div>`;
+  }).join('');
+
+  // Class distribution
+  const maxC=Math.max(...Object.values(classCounts),1);
+  document.getElementById('stats-classes').innerHTML=Object.keys(classConfig).map(k=>{
+    const c=classConfig[k];const cnt=classCounts[k]||0;
+    const pctW=(cnt/maxC)*100;
+    return `<div class="chart-row"><span class="chart-row-label" style="color:${c.color}">🏫 ${c.name}</span><div class="chart-row-bar-wrap"><div class="chart-row-bar" style="width:${pctW}%;background:${c.color}">${cnt}</div></div></div>`;
+  }).join('');
+
+  // Weekly schedule counts
+  const weekDays=[{id:'sun',name:'أحد'},{id:'mon',name:'إثنين'},{id:'tue',name:'ثلاثاء'},{id:'wed',name:'أربعاء'},{id:'thu',name:'خميس'}];
+  document.getElementById('stats-week').innerHTML=weekDays.map(d=>{
+    const sch=timetableConfig.schedule[d.id]||{};
+    const count=Object.values(sch).filter(v=>v).length;
+    return `<div class="week-cell"><div class="wc-day">${d.name}</div><div class="wc-count">${count}</div><div style="font-size:9px;color:var(--muted)">حصة</div></div>`;
+  }).join('');
+
+  // Grades chart
+  const gCard=document.getElementById('stats-grades-card');
+  const hasGrades=Object.keys(grades).some(k=>Object.keys(grades[k]).length>0);
+  if(hasGrades){
+    gCard.style.display='block';
+    document.getElementById('stats-grades').innerHTML=Object.keys(classConfig).map(k=>{
+      const sList=students[k]||[];
+      const cols=gradeTypes.filter(c=>c.classKey===k);
+      let sum=0,cnt=0;
+      sList.forEach(st=>{
+        const sg=(grades[k]||{})[st.id]||{};
+        let pts=0,maxPts=0;
+        cols.forEach(c=>{if(sg[c.id]!=null){pts+=Number(sg[c.id]);maxPts+=Number(c.max);}});
+        if(maxPts>0){sum+=(pts/maxPts)*100;cnt++;}
+      });
+      const avg=cnt?Math.round(sum/cnt):0;
+      const c=classConfig[k];
+      return `<div class="chart-row"><span class="chart-row-label" style="color:${c.color}">${c.name}</span><div class="chart-row-bar-wrap"><div class="chart-row-bar" style="width:${avg}%;background:${c.color}">${avg}%</div></div></div>`;
+    }).join('');
+  } else {
+    gCard.style.display='none';
+  }
+}
 
 // ══ TOAST ════════════════════════════════════════════
 let tt;
